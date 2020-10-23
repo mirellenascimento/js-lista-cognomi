@@ -10,15 +10,9 @@ console.log("Surname List= ", allSur);
 var userInput = prompt("Inserisci il tuo cognome:");
 console.log("User input= ", userInput);
 
-// Title Case function
-function titleCase(userInput) {
-  userInput = userInput.toLowerCase().split(' ');
-  for (var i = 0; i < userInput.length; i++) {
-    userInput[i] = userInput[i].charAt(0).toUpperCase() + userInput[i].slice(1);
-  }
-  return userInput.join(' ');
-}
-
+// document items
+var list = document.getElementById("surnameList");
+var number = document.getElementById("userNumber");
 
 // processing
 allSur.push(userInput);
@@ -28,6 +22,14 @@ allSur.sort();
 
 for (var i = 0; i < allSur.length; i++) {
   console.log("Ordered list ", allSur[i]);
-};
+  list.innerHTML += "<li>" + allSur[i] + "</li>";
 
-// document.getElementById("surnamelist").innerHTML = "<li>" + allSur[2] + "</li>";
+  var position = 0;
+  if (userInput == allSur[i]){
+    position = i;
+    number.innerHTML = "Sei il candidato di numero: " + (position + 1);
+    console.log(position);
+  }
+
+
+  };
